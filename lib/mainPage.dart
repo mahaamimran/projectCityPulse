@@ -1,12 +1,11 @@
-// ignore_for_file: file_names
-
+// ignore: file_names
 import 'package:city_pulse/home.dart';
 import 'package:flutter/material.dart';
-
-
+import 'package:city_pulse/favorites.dart';
+import 'package:city_pulse/settings.dart';
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -16,27 +15,15 @@ class _MyAppState extends State<MyApp> {
   int _selectedIndex = 0;
   bool isGalleryView = true; // Whether to show the gallery view
   late bool isMessageSent = true; // testing
-// Replace the const keyword with final to make _pages a modifiable list
+
   final List<Widget> _pages = [
-    //const Home(),
-    //const Favorites(),
-    //const Settings(),
+    const Home(),
+    const Favorites(),
+    const Settings(),
   ];
 
-// Inside the toggleGalleryView function
-  void toggleGalleryView() {
-    setState(() {
-      isGalleryView = !isGalleryView;
-     // print('skeletonToggle');
-      isMessageSent = !isMessageSent;
-
-      // Create a new list with the updated Home widget
-      _pages[0] = Home(isMessageSent: isMessageSent);
-    });
-  }
-
   final List<String> _appBarTitles = [
-    "Gallery",
+    "Home Page",
     "Favorites",
     "Settings",
   ];
@@ -46,87 +33,82 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Builder(builder: (BuildContext context) {
         return Scaffold(
-          // extendBodyBehindAppBar: true, // Extend body behind the app bar
-          appBar: AppBar(
-            title: Text(
-              _appBarTitles[_selectedIndex],
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: MediaQuery.of(context).size.width * 0.05,
+          appBar: PreferredSize(
+            preferredSize: const Size.fromHeight(kToolbarHeight + 30),
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Color.fromRGBO(145, 60, 240, 1),
+                borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(30),
+                ),
+              ),
+              child: AppBar(
+                title: Text(
+                  _appBarTitles[_selectedIndex],
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                  ),
+                ),
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                actions: [
+                  if (_selectedIndex == 0)
+                    IconButton(
+                      icon: Image.asset(
+                        isGalleryView
+                            ? 'assets/listView.png'
+                            : //gallaryviewicon
+                            'assets/galleryView.png',
+                            //'assets/galleryView.png',
+                        scale: 0.7,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          isGalleryView = !isGalleryView;
+                          isMessageSent = !isMessageSent;
+                        });
+                      },
+                    ),
+                ],
               ),
             ),
-            backgroundColor: const Color(0xFF677C7B),
-            elevation: 0, // Remove the app bar's shadow
-            actions: [
-              if (_selectedIndex == 0)
-                // Add a button to toggle the gallery view
-                IconButton(
-                  icon: Image.asset(
-                    isGalleryView
-                        ? 'assets/listView.png'
-                        : 'assets/galleryView.png',
-                    // You can adjust the scale value as needed
-                    scale: 0.7,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      isGalleryView = !isGalleryView;
-                     // print('skeletonToggle');
-                      isMessageSent = !isMessageSent;
-                      // Pass isMessageSent to Home widget
-                      //_pages[0] = Home(isMessageSent: isMessageSent);
-                    });
-                  },
-                ),
-            ],
           ),
-          body: Stack(
-            children: [
-              _pages[_selectedIndex], // page behind the bottom navigation bar
-              Positioned(
-                left: 40,
-                right: 40,
-                bottom: 35,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(50),
-                  child: BottomNavigationBar(
-                    showSelectedLabels: false,
-                    showUnselectedLabels: false,
-                    backgroundColor: const Color(0xD8D9D9D9),
-                    unselectedItemColor:
-                        const Color.fromARGB(150, 120, 142, 141),
-                    selectedItemColor: const Color.fromARGB(255, 55, 73, 87),
-                    currentIndex: _selectedIndex,
-                    onTap: (index) {
-                      setState(() {
-                        _selectedIndex = index;
-                      });
-                    },
-                    items: [
-                      BottomNavigationBarItem(
-                        icon: Image.asset(
-                          'assets/navigationbar/home.png',
-                          scale: 0.8,
-                        ),
-                        label: 'Home',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Image.asset(
-                          'assets/navigationbar/favourites.png',
-                          scale: 0.8,
-                        ),
-                        label: 'Favourites',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Image.asset(
-                          'assets/navigationbar/settings.png',
-                          scale: 0.8,
-                        ),
-                        label: 'Settings',
-                      ),
-                    ],
-                  ),
+          body: _pages[_selectedIndex],
+          bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            backgroundColor: const Color.fromRGBO(145, 60, 240, 1),
+            unselectedItemColor: Colors.white,
+            selectedItemColor: Colors.white,
+            currentIndex: _selectedIndex,
+            onTap: (index) {
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
+            items: [
+              BottomNavigationBarItem(
+                icon: Image.asset(
+                  'assets/navigationbar/home.png',
+                  scale: 0.8,
                 ),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Image.asset(
+                  'assets/navigationbar/notifications.png',
+                  scale: 0.8,
+                ),
+                label: 'Notifications',
+              ),
+              BottomNavigationBarItem(
+                icon: Image.asset(
+                  'assets/navigationbar/settings.png',
+                  scale: 0.8,
+                ),
+                label: 'Settings',
               ),
             ],
           ),

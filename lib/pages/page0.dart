@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 // subpage 1
 class SubPage1 extends StatefulWidget {
+  const SubPage1({super.key});
+
   @override
   State<SubPage1> createState() => _SubPage1State();
 }
