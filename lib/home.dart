@@ -1,5 +1,4 @@
 //import 'dart:math';
-//maham is so lame
 
 import 'package:flutter/material.dart';
 
