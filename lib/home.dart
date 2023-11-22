@@ -14,7 +14,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         // two rectangles in two columns
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.white,
         body: ListView(
           children: [
             SizedBox(height: MediaQuery.of(context).size.height * 0.03),
