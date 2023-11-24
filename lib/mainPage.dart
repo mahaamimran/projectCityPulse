@@ -1,11 +1,12 @@
-// ignore: file_names
+// ignore_for_file: file_names
+
 import 'package:city_pulse/home.dart';
 import 'package:flutter/material.dart';
 import 'package:city_pulse/favorites.dart';
 import 'package:city_pulse/settings.dart';
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key});
+  const MyApp({super.key, Key? key2});
 
   @override
   State<MyApp> createState() => _MyAppState();
