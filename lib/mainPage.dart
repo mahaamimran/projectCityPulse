@@ -31,6 +31,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    bool isHomePage =
+        true; // to make menubar white on other two pages, check later
     return MaterialApp(
       home: Builder(builder: (BuildContext context) {
         return Scaffold(
@@ -38,7 +40,7 @@ class _MyAppState extends State<MyApp> {
             preferredSize: const Size.fromHeight(kToolbarHeight + 30),
             child: Container(
               decoration: const BoxDecoration(
-                color: Color.fromRGBO(145, 60, 240, 1),
+                color: Color.fromRGBO(145, 60, 240, 1), // modify this line
                 borderRadius: BorderRadius.vertical(
                   bottom: Radius.circular(30),
                 ),
@@ -61,7 +63,7 @@ class _MyAppState extends State<MyApp> {
                             ? 'assets/listView.png'
                             : //gallaryviewicon
                             'assets/galleryView.png',
-                            //'assets/galleryView.png',
+                        //'assets/galleryView.png',
                         scale: 0.7,
                       ),
                       onPressed: () {
@@ -87,6 +89,13 @@ class _MyAppState extends State<MyApp> {
             onTap: (index) {
               setState(() {
                 _selectedIndex = index;
+                if (index == 0) {
+                  isHomePage = true;
+                  print(isHomePage);
+                } else {
+                  isHomePage = false;
+                  print(isHomePage);
+                }
               });
             },
             items: [
