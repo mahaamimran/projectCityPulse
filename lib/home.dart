@@ -51,7 +51,7 @@ class _HomeState extends State<Home> {
                                 color: Color.fromRGBO(208, 57, 176, 1),
                                 fontSize: 18,
                                 fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                             // logo
