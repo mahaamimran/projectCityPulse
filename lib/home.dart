@@ -48,18 +48,29 @@ class _HomeState extends State<Home> {
                               'Account Information',
                               textAlign: TextAlign.left,
                               style: TextStyle(
-                                color: Color.fromRGBO(121, 81, 117, 1),
+                                color: Color.fromRGBO(208, 57, 176, 1),
                                 fontSize: 18,
                                 fontFamily: 'Roboto',
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
                             // logo
-                            Image.asset(
-                              // change this
-                              'assets/navigationbar/favourites.png',
-                              width: 100, // Adjust the width of the image
-                              height: 100, // Adjust the height of the image
+                            // stack two pngs
+                            Stack(
+                              children: [
+                                Image.asset(
+                                  // change this
+                                  'assets/back.png',
+                                  width: 100, // Adjust the width of the image
+                                  height: 100, // Adjust the height of the image
+                                ),
+                                Image.asset(
+                                  // change this
+                                  'assets/3.png',
+                                  width: 100, // Adjust the width of the image
+                                  height: 100, // Adjust the height of the image
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -76,31 +87,31 @@ class _HomeState extends State<Home> {
                       height: MediaQuery.of(context).size.height * 0.15,
                       width: MediaQuery.of(context).size.width * 0.4,
                       decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 28, 138, 131),
+                        color:  Color(0xFF5FC7D9),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(25.0),
+                        padding: const EdgeInsets.all(15.0),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             // text
                             const Text(
                               'Vehicles',
                               textAlign: TextAlign.left,
                               style: TextStyle(
-                                color: Color.fromRGBO(121, 81, 117, 1),
+                                color: Color.fromRGBO(208, 57, 176, 1),
                                 fontSize: 18,
                                 fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                             // logo
                             Image.asset(
                               // change this
-                              'assets/navigationbar/favourites.png',
-                              width: 50, // Adjust the width of the image
-                              height: 50, // Adjust the height of the image
+                              'assets/vehicles.png',
+                              width: 70, // Adjust the width of the image
+                              height: 70, // Adjust the height of the image
                             ),
                           ],
                         ),
@@ -130,16 +141,16 @@ class _HomeState extends State<Home> {
                               'Predictions',
                               textAlign: TextAlign.left,
                               style: TextStyle(
-                                color: Color.fromRGBO(121, 81, 117, 1),
+                                color: Colors.black,
                                 fontSize: 18,
                                 fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                             // logo
                             Image.asset(
                               // change this
-                              'assets/navigationbar/favourites.png',
+                              'assets/Predictions.png',
                               width: 100, // Adjust the width of the image
                               height: 100, // Adjust the height of the image
                             ),
@@ -176,16 +187,15 @@ class _HomeState extends State<Home> {
                               'Parking',
                               textAlign: TextAlign.left,
                               style: TextStyle(
-                                color: Color.fromRGBO(214, 202, 213, 1),
+                                color: Colors.white,
                                 fontSize: 18,
                                 fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                             // logo
                             Image.asset(
-                              // change this
-                              'assets/navigationbar/favourites.png',
+                              'assets/parking.png',
                               width: 100, // Adjust the width of the image
                               height: 100, // Adjust the height of the image
                             ),
@@ -201,10 +211,10 @@ class _HomeState extends State<Home> {
                       print('Fine Payments Tapped');
                     },
                     child: Container(
-                      height: MediaQuery.of(context).size.height * 0.25,
+                      height: MediaQuery.of(context).size.height * 0.23,
                       width: MediaQuery.of(context).size.width * 0.4,
                       decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 214, 195, 235),
+                        color: const Color(0xFFF9F4FF),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Padding(
@@ -217,18 +227,22 @@ class _HomeState extends State<Home> {
                               'Fine Payments',
                               textAlign: TextAlign.left,
                               style: TextStyle(
-                                color: Color.fromRGBO(121, 81, 117, 1),
+                                color:  Color(0xFF8734E4),
                                 fontSize: 18,
                                 fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
+                            // sized box
+                            SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.02),
                             // logo
                             Image.asset(
                               // change this
-                              'assets/navigationbar/favourites.png',
-                              width: 100, // Adjust the width of the image
-                              height: 100, // Adjust the height of the image
+                              'assets/finePayments.png',
+                              width: 80, // Adjust the width of the image
+                              height: 80, // Adjust the height of the image
                             ),
                           ],
                         ),
@@ -242,34 +256,34 @@ class _HomeState extends State<Home> {
                       print('Traffic Updates Tapped');
                     },
                     child: Container(
-                      height: MediaQuery.of(context).size.height * 0.13,
+                      height: MediaQuery.of(context).size.height * 0.15,
                       width: MediaQuery.of(context).size.width * 0.4,
                       decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 66, 46, 87),
+                        color:const Color(0xFF311D6E),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(15.0),
+                        padding: const EdgeInsets.all(11.0),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             // text
                             const Text(
                               'Traffic Updates',
-                              textAlign: TextAlign.left,
+                              textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Color.fromRGBO(222, 222, 222, 1),
                                 fontSize: 18,
                                 fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                             // logo
                             Image.asset(
                               // change this
-                              'assets/navigationbar/favourites.png',
-                              width: 30, // Adjust the width of the image
-                              height: 30, // Adjust the height of the image
+                              'assets/trafficUpdates.png',
+                              width: 60, // Adjust the width of the image
+                              height: 60, // Adjust the height of the image
                             ),
                           ],
                         ),
