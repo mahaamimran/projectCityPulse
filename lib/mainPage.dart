@@ -2,7 +2,7 @@
 
 import 'package:city_pulse/home.dart';
 import 'package:flutter/material.dart';
-import 'package:city_pulse/favorites.dart';
+import 'package:city_pulse/Favorites.dart';
 import 'package:city_pulse/settings.dart';
 
 class MyApp extends StatefulWidget {
@@ -19,13 +19,13 @@ class _MyAppState extends State<MyApp> {
 
   final List<Widget> _pages = [
     const Home(),
-    const Favorites(),
+    const Notifications(),
     const Settings(),
   ];
 
   final List<String> _appBarTitles = [
     "Home Page",
-    "Favorites",
+    "Notifications",
     "Settings",
   ];
 
